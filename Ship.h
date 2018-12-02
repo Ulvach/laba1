@@ -1,7 +1,3 @@
-//
-// Created by Сергей Баталев on 08/10/2018.
-//
-
 #ifndef OL_23_SHIP_H
 #define OL_23_SHIP_H
 
