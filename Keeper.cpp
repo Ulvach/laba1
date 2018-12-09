@@ -55,9 +55,7 @@ void Keeper::write(string filename) {
     file.open(filename, ios_base::out);
     file << this->size << endl;
     for (int i = 0; i < this->size; ++i) {
-        for (int j = 0; j < this->size; ++j) {
-            this->data[j]->write(file);
-        }
+        this->data[i]->write(file);
     }
     file.close();
 }

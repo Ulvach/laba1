@@ -11,7 +11,7 @@ const string filename = "text.txt";
 
 int main() {
     setlocale(LC_ALL, "Russian");
-    
+
     Keeper *keeper = new Keeper();
     bool fl = true;
     int mode;
@@ -36,13 +36,12 @@ int main() {
                 file.open(filename);
                 int count;
                 file >> count;
-                cout << "Количество" << count;
+                cout << "Количество: " << count << endl;
                 string type;
                 for (int i = 0; i < count; ++i) {
                     file >> type;
                     if (type == "boat") {
-                        int length, peoples, speed;
-                        file >> length;
+                        int peoples, speed;
                         file >> peoples;
                         file >> speed;
                         string to, material, gohar;
@@ -52,25 +51,31 @@ int main() {
                         getline(file, material);
                         file.ignore();
                         getline(file, gohar);
-                        Boat *b = new Boat(length, peoples, speed, to, material, gohar);
+                        Boat *b = new Boat(0, peoples, speed, to, material, gohar);
                         keeper->add(*b);
                     } else if (type == "sailboat") {
                         int length, peoples, speed;
+                        string name, military;
                         file >> length;
                         file >> peoples;
                         file >> speed;
+                        file >> military;
+                        file >> name;
                         string type;
                         file >> type;
-                        Sailboat *s = new Sailboat(length, peoples, speed, type);
+                        Sailboat *s = new Sailboat(length, peoples, speed, type, name, military);
                         keeper->add(*s);
                     } else if (type == "submarine") {
-                        int length, peoples, speed;
+                        int length, peoples, speed, underwaterTime;
+                        string armour;
                         file >> length;
                         file >> peoples;
                         file >> speed;
+                        file >> underwaterTime;
+                        file >> armour;
                         int width;
                         file >> width;
-                        Submarine *sb = new Submarine(length, peoples, speed, width);
+                        Submarine *sb = new Submarine(length, peoples, speed, width, underwaterTime, armour);
                         keeper->add(*sb);
                     }
                 }
@@ -84,8 +89,10 @@ int main() {
                 int selected;
                 cout << "Введите тип: 1 - Катер, 2 - Парусник, 3 - Подводная лодка" << endl;
                 cin >> selected;
-                cout << "Длина" << endl;
-                cin >> length;
+                if (selected != 1) {
+                    cout << "Длина" << endl;
+                    cin >> length;
+                }
                 cout << "Экипаж: " << endl;
                 cin >> peoples;
                 cout << "Скорость: " << endl;
@@ -101,7 +108,7 @@ int main() {
                         cout << "Введите ходовые характеристики" << endl;
                         cin >> gohar;
 
-                        Boat *b = new Boat(length, peoples, speed, to, material, gohar);
+                        Boat *b = new Boat(0, peoples, speed, to, material, gohar);
                         keeper->add(*b);
                         break;
                     }
@@ -109,15 +116,26 @@ int main() {
                         string type;
                         cout << "Введите тип " << endl;
                         cin >> type;
-                        Sailboat *s = new Sailboat(length, peoples, speed, type);
+                        string name;
+                        cout << "Введите называние" << endl;
+                        cin >> name;
+                        string mulitary;
+                        cout << "Военный или мирный?" << endl;
+                        cin >> mulitary;
+                        Sailboat *s = new Sailboat(length, peoples, speed, type, name, mulitary);
                         keeper->add(*s);
                         break;
                     }
                     case 3: {
-                        int width;
+                        int width, underwaterTime;
+                        string armour;
                         cout << "Введите ширину" << endl;
                         cin >> width;
-                        Submarine *sub = new Submarine(length, peoples, speed, width);
+                        cout << "Введите время под водой" << endl;
+                        cin >> underwaterTime;
+                        cout << "Введите вооружение" << endl;
+                        cin >> armour;
+                        Submarine *sub = new Submarine(length, peoples, speed, width, underwaterTime, armour);
                         keeper->add(*sub);
                         break;
                     }
