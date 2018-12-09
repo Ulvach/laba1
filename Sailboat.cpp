@@ -9,6 +9,6 @@ void Sailboat::write(ostream &fo) {
 }
 
 void Sailboat::print() {
-    cout << "type: "<< "sailboat" <<" len: " << this->length << " speed: " << this->speed << " people: "<< this->peoples;
-    cout << " type: " << this->type << endl;
+    cout << "Тип: "<< "Парусник" <<" Длина: " << this->length << " Скорость: " << this->speed << " Экипаж: "<< this->peoples;
+    cout << " Тип: " << this->type << endl;
 }

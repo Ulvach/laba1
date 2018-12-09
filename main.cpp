@@ -10,18 +10,19 @@ using namespace std;
 const string filename = "text.txt";
 
 int main() {
-
+    setlocale(LC_ALL, "Russian");
+    
     Keeper *keeper = new Keeper();
     bool fl = true;
     int mode;
 
     while (fl) {
-        cout << "0 - write to file" << endl;
-        cout << "1 - read to file" << endl;
-        cout << "2 - add new element" << endl;
-        cout << "3 - remove element" << endl;
-        cout << "4 - print keeper" << endl;
-        cout << "5 - exit" << endl;
+        cout << "0 - Записать в файл" << endl;
+        cout << "1 - Прочитать из файла" << endl;
+        cout << "2 - Добавить новый элемент" << endl;
+        cout << "3 - Удалить элемент" << endl;
+        cout << "4 - Напечатать Keeper" << endl;
+        cout << "5 - Выход" << endl;
 
         cin >> mode;
         switch (mode) {
@@ -30,12 +31,12 @@ int main() {
                 break;
             }
             case 1: {
-                cout << "herefdla" << endl;
+                cout << "Читаю из файла" << endl;
                 ifstream file;
                 file.open(filename);
                 int count;
                 file >> count;
-                cout << "count" << count;
+                cout << "Количество" << count;
                 string type;
                 for (int i = 0; i < count; ++i) {
                     file >> type;
@@ -81,23 +82,23 @@ int main() {
                 int peoples;
                 int speed;
                 int selected;
-                cout << "Enter type: 1 - Boat, 2 - Sailboat, 3 - Submarine" << endl;
+                cout << "Введите тип: 1 - Катер, 2 - Парусник, 3 - Подводная лодка" << endl;
                 cin >> selected;
-                cout << "Length" << endl;
+                cout << "Длина" << endl;
                 cin >> length;
-                cout << "Peoples: " << endl;
+                cout << "Экипаж: " << endl;
                 cin >> peoples;
-                cout << "Speed: " << endl;
+                cout << "Скорость: " << endl;
                 cin >> speed;
 
                 switch (selected) {
                     case 1: {
                         string to, material, gohar;
-                        cout << "Enter to" << endl;
+                        cout << "Введите назначение" << endl;
                         cin >> to;
-                        cout << "Enter material" << endl;
+                        cout << "Введите материал" << endl;
                         cin >> material;
-                        cout << "Enter gohar" << endl;
+                        cout << "Введите ходовые характеристики" << endl;
                         cin >> gohar;
 
                         Boat *b = new Boat(length, peoples, speed, to, material, gohar);
@@ -106,7 +107,7 @@ int main() {
                     }
                     case 2: {
                         string type;
-                        cout << "Enter type " << endl;
+                        cout << "Введите тип " << endl;
                         cin >> type;
                         Sailboat *s = new Sailboat(length, peoples, speed, type);
                         keeper->add(*s);
@@ -114,7 +115,7 @@ int main() {
                     }
                     case 3: {
                         int width;
-                        cout << "Enter width" << endl;
+                        cout << "Введите ширину" << endl;
                         cin >> width;
                         Submarine *sub = new Submarine(length, peoples, speed, width);
                         keeper->add(*sub);
@@ -124,7 +125,7 @@ int main() {
                 break;
             }
             case 3: {
-                cout << "enter deleting index" << endl;
+                cout << "Введите удаляемый индекс" << endl;
                 int index;
                 cin >> index;
                 keeper->remove(index);

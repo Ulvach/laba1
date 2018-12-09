@@ -10,7 +10,7 @@ Boat::Boat(int length, int peoples, int speed, const string &to, const string &m
         length, peoples, speed), to(to), material(material), gohar(gohar) {}
 
 void Boat::print() {
-    cout << "type: "<< "boat" <<" len: " << this->length << " speed: " << this->speed << " people: "<< this->peoples;
-    cout << " to: " << this->to << " material: " << this->material << " gohar: " << this->gohar << endl;
+    cout << "Тип: "<< "Катер" <<" Длина: " << this->length << " Скорость: " << this->speed << " экипаж: "<< this->peoples;
+    cout << " Назначение: " << this->to << " материал: " << this->material << " ходовые качества: " << this->gohar << endl;
 }
 

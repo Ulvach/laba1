@@ -29,7 +29,7 @@ Keeper &Keeper::add(Ship &ship) {
 
 Keeper &Keeper::remove(int index) {
     if (index < 0 || index >= this->size) {
-        cout << "error, index invalid" << endl;
+        cout << "Ошибка, неверный индекс массива" << endl;
     } else {
         int k = 0;
         Ship **copy = new Ship*[this->size];
