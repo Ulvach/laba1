@@ -15,3 +15,29 @@ void Sailboat::print() {
     cout << "Тип: "<< "Парусник" <<" Длина: " << this->length << " Скорость: " << this->speed << " Экипаж: "<< this->peoples;
     cout << " Тип: " << this->type << " " << this->military << " Название: " << this->name << endl;
 }
+
+const string &Sailboat::getType() const {
+    return type;
+}
+
+Sailboat::Sailboat(int length, int peoples, int speed) : Ship(length, peoples, speed) {}
+
+void Sailboat::setType(const string &type) {
+    Sailboat::type = type;
+}
+
+const string &Sailboat::getName() const {
+    return name;
+}
+
+void Sailboat::setName(const string &name) {
+    Sailboat::name = name;
+}
+
+const string &Sailboat::getMilitary() const {
+    return military;
+}
+
+void Sailboat::setMilitary(const string &military) {
+    Sailboat::military = military;
+}

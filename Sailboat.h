@@ -1,3 +1,4 @@
+
 #ifndef OL_23_SAILBOAT_H
 #define OL_23_SAILBOAT_H
 
@@ -12,6 +13,20 @@ class Sailboat : public Ship {
     string military;
 public:
     Sailboat(int length, int peoples, int speed, const string &type, string &name, string &military);
+
+    Sailboat(int length, int peoples, int speed);
+
+    const string &getType() const;
+
+    void setType(const string &type);
+
+    const string &getName() const;
+
+    void setName(const string &name);
+
+    const string &getMilitary() const;
+
+    void setMilitary(const string &military);
 
     void print() override;
 

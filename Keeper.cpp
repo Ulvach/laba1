@@ -59,3 +59,12 @@ void Keeper::write(string filename) {
     }
     file.close();
 }
+
+Keeper::Keeper() {
+    size = 0;
+}
+
+Keeper::~Keeper() {
+    size = 0;
+    delete []data;
+}

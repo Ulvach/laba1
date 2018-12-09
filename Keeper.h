@@ -15,6 +15,9 @@ public:
     Keeper &remove(int index);
     Keeper &print();
 
+    Keeper();
+    ~Keeper();
+
     void write(string filename);
 };
 

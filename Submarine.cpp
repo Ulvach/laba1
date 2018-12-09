@@ -8,6 +8,8 @@ void Submarine::write(ostream &fo) {
     fo << this->width << endl;
 }
 
+Submarine::Submarine(int length, int peoples, int speed) : Ship(length, peoples, speed) {}
+
 void Submarine::print() {
     cout << "Тип: "<< "Подводная лодка" <<" Длина: " << this->length << " Скорость: " << this->speed << " Экипаж: "<< this->peoples;
     cout << " ширина: " << this->width << " Время под водой: " << underwaterTime << " Вооружение: " << armour << endl;

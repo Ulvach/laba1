@@ -14,6 +14,8 @@ public:
 
     Submarine(int length, int peoples, int speed, int width, int underwaterTime, string &armour);
 
+    Submarine(int length, int peoples, int speed);
+
     void print() override;
 };
 

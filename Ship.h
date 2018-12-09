@@ -15,6 +15,17 @@ public:
     virtual void write(ostream &fo) = 0;
     virtual void print() = 0;
 
+    int getLength() const;
+
+    void setLength(int length);
+
+    int getPeoples() const;
+
+    void setPeoples(int peoples);
+
+    int getSpeed() const;
+
+    void setSpeed(int speed);
 };
 
 
